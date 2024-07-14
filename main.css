@@ -1,0 +1,73 @@
+:root {
+  --spacing: 1rem;
+  --bichos-bg: #fff;
+  --bichos-fg: #333;
+}
+
+*, ::after, ::before {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: #eee;
+  font: 1rem/1.5 sans-serif;
+}
+
+h1, h2, h3, ul {
+  margin: 0;
+  font-weight: normal;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+#bichos {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: var(--spacing);
+  max-width: 100vw;
+  margin: var(--spacing);
+
+  .bicho {
+    display: grid;
+    grid-template-areas: 
+    'grupo img dezenas'
+    '. img dezenas'
+    'nome nome nome';
+    gap: calc(var(--spacing) / 2);
+    place-content: center;
+    place-items: center;
+    border: 3px solid #000;
+    border-radius: 16px;
+    padding: var(--spacing);
+    background: var(--bichos-bg);
+  }
+
+  .grupo {
+    grid-area: grupo;
+  }
+
+  .nome {
+    grid-area: nome;
+  }
+
+  & img {
+    grid-area: img;
+  }
+
+  img.flip{
+    transform: scaleX(-1);
+  }
+
+  .dezenas {
+    grid-area: dezenas;
+    list-style: none;
+  }
+
+  .dezena {
+
+  }
+}
